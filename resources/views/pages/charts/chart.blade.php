@@ -1,5 +1,3 @@
-
-
 @include('partials.head1')
 <body>
   <div class="container-scroller d-flex">
@@ -14,24 +12,32 @@
         <div class="content-wrapper">
           <!-- row end -->
               <div class="row">
-                <div class="col-lg-6 grid-margin stretch-card">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title">Line chart</h4>
-                      <canvas id="lineChart"></canvas>
+                      <table>
+                        <tr>
+                        <td>Id</td>
+                        <td>title</td>
+                        <td>location</td>
+                        <td>price</td>
+                        <td>created_at</td>
+                        </tr>
+                      </table>
                     </div>
+                    @foreach($properties as $property)
+
+                    <tr>
+                    <td>{{$properties['id']}}</td>
+                    <td>{{$properties['title']}}</td>
+                    <td>{{$properties['location']}}</td>
+                    <td>{{$properties['price']}}</td>
+                    <td>{{$properties['created_at']}}</td>
+                    </tr>
+                    @endforeach
                   </div>
-                </div>
-                <div class="col-lg-6 grid-margin stretch-card">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Bar chart</h4>
-                      <canvas id="barChart"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
+
+
+              {{-- <div class="row">
                 <div class="col-lg-6 grid-margin stretch-card">
                   <div class="card">
                     <div class="card-body">
@@ -48,8 +54,8 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="row">
+              </div> --}}
+              {{-- <div class="row">
                 <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
                   <div class="card">
                     <div class="card-body">
@@ -66,9 +72,7 @@
                     </div>
                   </div>
                 </div>
-
-
-      </div>
+      </div> --}}
       <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->

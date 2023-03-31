@@ -20461,7 +20461,8 @@ dl li {
 /* Sidebar */
 .sidebar {
   min-height: calc(100vh - 65px);
-  background: #223e9c;
+  /* background: #223e9c; */
+  background-color: #002748;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   padding: 0;

@@ -4,13 +4,13 @@
        <span class="mdi mdi-menu"></span>
      </button>
      <div class="navbar-brand-wrapper">
-       <a class="navbar-brand brand-logo" href="index.html"><img src="asset1/images/android-icon-48x48.png" alt="logo"/></a>
-       <a class="navbar-brand brand-logo-mini" href="index.html"><img src="asset1/images/logo-mini.svg" alt="logo"/></a>
+       <a class="navbar-brand brand-logo" href="index.html"><img src="{{ asset('asset1/images/android-icon-48x48.png') }}" alt="logo"/></a>
+       <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('asset1/images/logo-mini.svg') }}" alt="logo"/></a>
      </div>
-     <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1">Welcome back, admin</h4>
+     <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1" style="color:#FFFFFF">Welcome back, admin</h4>
      <ul class="navbar-nav navbar-nav-right">
        <li class="nav-item">
-         <h4 class="mb-0 font-weight-bold d-none d-xl-block">{{  now()->toDateTimeString() }}</h4>
+         <h4 class="mb-0 font-weight-bold d-none d-xl-block" style="color:#FFFFFF">{{  now()->toDateTimeString() }}</h4>
        </li>
        <li class="nav-item dropdown mr-1">
          <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
@@ -21,7 +21,7 @@
            <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
            <a class="dropdown-item preview-item">
              <div class="preview-thumbnail">
-                 <img src="asset1/images/faces/face4.jpg" alt="image" class="profile-pic">
+                 <img src="{{ asset('asset1/images/faces/face4.jpg') }}" alt="image" class="profile-pic">
              </div>
              <div class="preview-item-content flex-grow">
                <h6 class="preview-subject ellipsis font-weight-normal">David Grey
@@ -33,7 +33,7 @@
            </a>
            <a class="dropdown-item preview-item">
              <div class="preview-thumbnail">
-                 <img src="asset1/images/faces/face2.jpg" alt="image" class="profile-pic">
+                 <img src="{{ asset('asset1/images/faces/face2.jpg') }}" alt="image" class="profile-pic">
              </div>
              <div class="preview-item-content flex-grow">
                <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
@@ -45,7 +45,7 @@
            </a>
            <a class="dropdown-item preview-item">
              <div class="preview-thumbnail">
-                 <img src="asset1/images/faces/face3.jpg" alt="image" class="profile-pic">
+                 <img src="{{ asset('asset1/images/faces/face3.jpg') }}" alt="image" class="profile-pic">
              </div>
              <div class="preview-item-content flex-grow">
                <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
@@ -121,7 +121,7 @@
      <ul class="navbar-nav navbar-nav-right">
        <li class="nav-item nav-profile dropdown">
          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-           <img src="asset1/images/faces/face5.jpg" alt="profile"/>
+           <img src="{{ asset('asset1/images/faces/face5.jpg') }}" alt="profile"/>
            <span class="nav-profile-name">Eleanor Richardson</span>
          </a>
          <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
@@ -129,9 +129,10 @@
              <i class="mdi mdi-settings text-primary"></i>
              Settings
            </a>
-           <a class="dropdown-item">
+           <a class="dropdown-item"  href="{!! route('logout') !!}">
              <i class="mdi mdi-logout text-primary"></i>
-             Logout
+             <span class="me-2" data-feather="log-out"> Logout</span>
+
            </a>
          </div>
        </li>

@@ -44,7 +44,7 @@
       <p>Illustrations</p>
       <span></span>
     </li>
-     <li class="nav-item">
+     {{-- <li class="nav-item">
        <a class="nav-link" href="{!! route('charts.chart') !!}">
          <i class="mdi mdi-chart-pie menu-icon"></i>
          <span class="menu-title">Charts</span>
@@ -55,7 +55,7 @@
          <i class="mdi mdi-grid-large menu-icon"></i>
          <span class="menu-title">Tables</span>
        </a>
-     </li>
+     </li> --}}
 
      <li class="nav-item sidebar-category">
        <p>Pages</p>
@@ -69,11 +69,11 @@
        </a>
        <div class="collapse" id="auth">
          <ul class="nav flex-column sub-menu">
-           <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-           <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li>
-           <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-           <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register 2 </a></li>
-           <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Lockscreen </a></li>
+           <li class="nav-item"> <a class="nav-link" href="{{ url('/login')}}"> Login </a></li>
+           {{-- <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li> --}}
+           <li class="nav-item"> <a class="nav-link" href="{{ url('/')}}"> Register </a></li>
+           {{-- <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register 2 </a></li> --}}
+           <li class="nav-item"> <a class="nav-link" href="{{url('/')}}"> Lockscreen </a></li>
          </ul>
        </div>
      </li>
@@ -91,6 +91,11 @@
       <a class="nav-link" href="{!! route('marketing.index') !!}">
         <i class="mdi mdi-file-document-box-outline menu-icon"></i>
         <span class="menu-title">Marketing</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{!! route('logout') !!}">
+        <button class="btn bg-danger btn-sm menu-title">Logout</button>
       </a>
     </li>
    </ul>

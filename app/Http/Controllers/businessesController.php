@@ -44,4 +44,5 @@ class businessesController extends Controller
                         ->get();
       return view('pages.businesses.details', compact('account','reservations'));
    }
+ 
 }

@@ -1,14 +1,15 @@
 @extends('layouts.app')
-@section('title'){!! $deal->title !!} | Deals @endsection
+@section('title'){!! $deal->title !!} | Deals
 @section('content')
-   <nav class="mb-2" aria-label="breadcrumb">
+
+<div class="row gx-6 gy-3 mb-4 align-items-center">
+   <nav class="" aria-label="breadcrumb">
       <ol class="breadcrumb mb-0">
          <li class="breadcrumb-item"><a href="#">Property</a></li>
          <li class="breadcrumb-item">Deals</li>
          <li class="breadcrumb-item active">{!! $deal->title !!}</li>
       </ol>
    </nav>
-   <div class="row gx-6 gy-3 mb-4 align-items-center">
       <div class="col-auto">
         <h2 class="mb-0">{!! $deal->title !!}</h2>
         <p class="text-700 lead mb-2 mt-3"><i class="fal fa-calendar-check"></i> {!! date('F jS, Y', strtotime($deal->start_date)) !!} <i class="fal fa-horizontal-rule"></i> <i class="fal fa-calendar-times"></i> {!! date('F jS, Y', strtotime($deal->end_date)) !!} </p>
