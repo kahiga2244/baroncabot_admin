@@ -1,12 +1,6 @@
 @extends('layouts.app')
 @section('title','Dashboard')
 @section('content')
-   <div class="" aria-label="breadcrumb">
-      <ol class="breadcrumb ">
-         <li class="breadcrumb-item"><a href="#">Property</a></li>
-         <li class="breadcrumb-item active">Create</li>
-      </ol>
-   </div>
    @include('partials._messages')
    <!-- Form -->
    <form class="mb-4" method="POST" action="{!! route('property.store') !!}" enctype="multipart/form-data">

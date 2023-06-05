@@ -1,4 +1,4 @@
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
+<nav class="sidebar sidebar-offcanvas" style="color: #002748;" id="sidebar">
    <ul class="nav">
      <li class="nav-item sidebar-category">
        <p>Navigation</p>
@@ -15,6 +15,12 @@
        <p>Components</p>
        <span></span>
      </li>
+     <li class="nav-item">
+      <a class="nav-link" href="{!! route('reservations.index') !!}">
+        <i class="mdi mdi-view-headline menu-icon"></i>
+        <span class="menu-title">Payment proof</span>
+      </a>
+    </li>
      <li class="nav-item">
        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
          <i class="mdi mdi-palette menu-icon"></i>
@@ -34,34 +40,28 @@
          <span class="menu-title">Reserved</span>
        </a>
      </li>
-     <li class="nav-item">
+     {{-- <li class="nav-item">
       <a class="nav-link" href="{!! route('property.deals') !!}">
          <i class="mdi mdi-file-document-box-outline menu-icon"></i>
         <span class="menu-title">Deals</span>
       </a>
-    </li>
-    <li class="nav-item sidebar-category">
+    </li> --}}
+    {{-- <li class="nav-item sidebar-category">
       <p>Illustrations</p>
       <span></span>
-    </li>
-     {{-- <li class="nav-item">
-       <a class="nav-link" href="{!! route('charts.chart') !!}">
-         <i class="mdi mdi-chart-pie menu-icon"></i>
-         <span class="menu-title">Charts</span>
-       </a>
-     </li>
-     <li class="nav-item">
+
+    {{--   <li class="nav-item">
        <a class="nav-link" href="{!! route('charts.table') !!}">
          <i class="mdi mdi-grid-large menu-icon"></i>
          <span class="menu-title">Tables</span>
        </a>
      </li> --}}
 
-     <li class="nav-item sidebar-category">
+     {{-- <li class="nav-item sidebar-category">
        <p>Pages</p>
        <span></span>
-     </li>
-     <li class="nav-item">
+     </li> --}}
+     {{-- <li class="nav-item">
        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
          <i class="mdi mdi-account menu-icon"></i>
          <span class="menu-title">User Pages</span>
@@ -70,29 +70,39 @@
        <div class="collapse" id="auth">
          <ul class="nav flex-column sub-menu">
            <li class="nav-item"> <a class="nav-link" href="{{ url('/login')}}"> Login </a></li>
-           {{-- <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li> --}}
-           <li class="nav-item"> <a class="nav-link" href="{{ url('/')}}"> Register </a></li>
-           {{-- <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register 2 </a></li> --}}
-           <li class="nav-item"> <a class="nav-link" href="{{url('/')}}"> Lockscreen </a></li>
+           <li class="nav-item"> <a class="nav-link" href="{{ url('/register')}}"> Register </a></li>
+           <li class="nav-item"> <a class="nav-link" href="{{ url('/users')}}"> Add User </a></li>
          </ul>
        </div>
-     </li>
-     <li class="nav-item sidebar-category">
-       <p>Money</p>
-       <span></span>
-     </li>
+     </li> --}}
      <li class="nav-item">
       <a class="nav-link" href="{!! route('page.businesses') !!}">
+        <i class="mdi mdi-grid-large menu-icon"></i>
+        <span class="menu-title">Business</span>
+      </a>
+    </li>
+    {{-- <li class="nav-item">
+      <a class="nav-link" href="{!! route('marketing.index') !!}">
+        <i class="mdi mdi-book-plus menu-icon"></i>
+        <span class="menu-title">Marketing</span>
+      </a>
+    </li> --}}
+    {{-- <li class="nav-item sidebar-category">
+      <p>Comparison</p>
+      <span></span>
+    </li> --}}
+    {{-- <li class="nav-item">
+      <a class="nav-link" href="{!! route('comparison.bizUser') !!}">
         <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-        <span class="menu-title">Accounts</span>
+        <span class="menu-title">Businesses</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{!! route('marketing.index') !!}">
+      <a class="nav-link" href="{!! route('comparison.reservedCompany') !!}">
         <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-        <span class="menu-title">Marketing</span>
+        <span class="menu-title">Reserved</span>
       </a>
-    </li>
+    </li> --}}
     <li class="nav-item">
       <a class="nav-link" href="{!! route('logout') !!}">
         <button class="btn bg-danger btn-sm menu-title">Logout</button>

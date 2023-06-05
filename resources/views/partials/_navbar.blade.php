@@ -7,7 +7,7 @@
        <a class="navbar-brand brand-logo" href="index.html"><img src="{{ asset('asset1/images/android-icon-48x48.png') }}" alt="logo"/></a>
        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('asset1/images/logo-mini.svg') }}" alt="logo"/></a>
      </div>
-     <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1" style="color:#FFFFFF">Welcome back, admin</h4>
+
      <ul class="navbar-nav navbar-nav-right">
        <li class="nav-item">
          <h4 class="mb-0 font-weight-bold d-none d-xl-block" style="color:#FFFFFF">{{  now()->toDateTimeString() }}</h4>
@@ -15,7 +15,7 @@
        <li class="nav-item dropdown mr-1">
          <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
            <i class="mdi mdi-calendar mx-0"></i>
-           <span class="count bg-info">2</span>
+           {{-- <span class="count bg-info">2</span> --}}
          </a>
          <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
            <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
@@ -60,7 +60,7 @@
        <li class="nav-item dropdown mr-2">
          <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
            <i class="mdi mdi-email-open mx-0"></i>
-           <span class="count bg-danger">1</span>
+           {{-- <span class="count bg-danger">1</span> --}}
          </a>
          <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
            <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
@@ -113,16 +113,14 @@
    <div class="navbar-menu-wrapper navbar-search-wrapper d-none d-lg-flex align-items-center">
      <ul class="navbar-nav mr-lg-2">
        <li class="nav-item nav-search d-none d-lg-block">
-         <div class="input-group">
-           <input type="text" class="form-control" placeholder="Search Here..." aria-label="search" aria-describedby="search">
-         </div>
+         <h4 class="font-weight-bold mb-0 d-none d-md-block mt-1" style="color: #002748;">Welcome back {{ Auth::user()->name }}</h4>
        </li>
      </ul>
      <ul class="navbar-nav navbar-nav-right">
        <li class="nav-item nav-profile dropdown">
          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
            <img src="{{ asset('asset1/images/faces/face5.jpg') }}" alt="profile"/>
-           <span class="nav-profile-name">Eleanor Richardson</span>
+           <span class="nav-profile-name">{{ Auth::user()->name }}</span>
          </a>
          <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
            <a class="dropdown-item">
@@ -136,7 +134,7 @@
            </a>
          </div>
        </li>
-       <li class="nav-item">
+       {{-- <li class="nav-item">
          <a href="#" class="nav-link icon-link">
            <i class="mdi mdi-plus-circle-outline"></i>
          </a>
@@ -150,7 +148,7 @@
          <a href="#" class="nav-link icon-link">
            <i class="mdi mdi-clock-outline"></i>
          </a>
-       </li>
+       </li> --}}
      </ul>
    </div>
  </nav>

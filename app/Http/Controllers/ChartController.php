@@ -22,12 +22,13 @@ class ChartController extends Controller
    }
 
     public function charts(){
-      $properties = Property::whereNull('parent')->orderby('created_at')->get();
-      return $properties;
-      // return view('pages.charts.chart', ['properties'=>$properties]);
+      $properties = Property::latest()->take(5)->get();
+      // return $properties;
+      return view('pages.charts.chart', compact('properties'));
     }
     public function table(){
-      return view('pages.charts.table');
+      $businesses = Business::latest()->take(5)->get();
+      return view('pages.charts.table', compact('businesses'));
     }
 
 }

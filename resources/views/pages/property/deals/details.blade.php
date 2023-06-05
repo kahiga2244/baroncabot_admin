@@ -1,25 +1,21 @@
 @extends('layouts.app')
-@section('title'){!! $deal->title !!} | Deals
+@section('title', 'Details')
 @section('content')
-
-<div class="row gx-6 gy-3 mb-4 align-items-center">
    <nav class="" aria-label="breadcrumb">
       <ol class="breadcrumb mb-0">
          <li class="breadcrumb-item"><a href="#">Property</a></li>
          <li class="breadcrumb-item">Deals</li>
          <li class="breadcrumb-item active">{!! $deal->title !!}</li>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <li class="breadcrumb-item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <i class="fal fa-calendar-check"></i> {!! date('F jS, Y', strtotime($deal->start_date)) !!}&nbsp;&nbsp; <i class="fal fa-horizontal-rule"></i> &nbsp;&nbsp;<i class="fal fa-calendar-times"></i> {!! date('F jS, Y', strtotime($deal->end_date)) !!}</li>
       </ol>
    </nav>
-      <div class="col-auto">
-        <h2 class="mb-0">{!! $deal->title !!}</h2>
-        <p class="text-700 lead mb-2 mt-3"><i class="fal fa-calendar-check"></i> {!! date('F jS, Y', strtotime($deal->start_date)) !!} <i class="fal fa-horizontal-rule"></i> <i class="fal fa-calendar-times"></i> {!! date('F jS, Y', strtotime($deal->end_date)) !!} </p>
-      </div>
-   </div>
    @include('partials._messages')
    <div class="row">
       @foreach ($projects as $project)
          <div class="col-md-3 mb-3">
-            <div class="card" style="max-width:20rem;">
+            <div class="card" >
                @php
                   $cover = Property::unit_image($project->unit_code)->getData();
                @endphp
@@ -35,6 +31,7 @@
                      <img class="card-img-top" src="#" alt="{!! $deal->title !!}">
                   @endif
                @endif
+               <br>
                <div class="card-body">
                   <h5 class="card-title">
                      <b>Unit :</b> <a href="{!! route('property.edit',$project->property_code) !!}" class="" target="_blank">{!! $project->title !!}</a> <br><br>

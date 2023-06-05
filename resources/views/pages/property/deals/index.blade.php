@@ -19,7 +19,7 @@
           <!-- row end -->
           <div class="row">
             @foreach ($deals as $deal)
-            <div class="col-md-4 grid-margin stretch-card">
+            <div class="square">
                <div class="card">
                   <img class="card-img-top" src="{!! asset('deals/'.$deal->cover_image) !!}" alt="{!! $deal->title !!}">
                  <div class="card-body">

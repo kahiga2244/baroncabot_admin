@@ -33,14 +33,14 @@ class adminController extends Controller
       return view('pages.dashboard', compact('reserves','sold','units','projects'));
    }
 
-   public function propetyDetails(Request $request){
-      $properties = Property::latest()->take(5)->get();
-      // $properties = Property::orderBy("id")->take(5)->get();
-      return view('pages.dashboard', compact('properties'));
-   }
-   public function businessDetails(Request $request){
-      $businesses = Business::latest()->take(5)->get();
-      // $properties = Property::orderBy("id")->take(5)->get();
-      return view('pages.dashboard', compact('businesses'));
-   }
+   // public function propetyDetails(Request $request){
+   //    $properties = Property::latest()->take(5)->get();
+   //    // $properties = Property::orderBy("id")->take(5)->get();
+   //    return view('pages.dashboard', compact('properties'));
+   // }
+   // public function businessDetails(Request $request){
+   //    $businesses = Business::latest()->take(5)->get();
+   //    // $properties = Property::orderBy("id")->take(5)->get();
+   //    return view('pages.dashboard', compact('businesses'));
+   // }
 }

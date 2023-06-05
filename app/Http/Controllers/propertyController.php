@@ -529,5 +529,56 @@ class propertyController extends Controller
 
       return redirect()->back();
    }
+   //comparing companies against reservedby column
+   public function compareCompanies()
+    {
+        $reservations = Reserve::all()->groupBy('reserved_by')->map(function($group) {
+            return count($group);
+        });
+
+        $reservations = $reservations->sortDesc();
+
+        $most_reserved = $reservations->first();
+        $least_reserved = $reservations->last();
+
+        return view('comparison.reservedCompany', [
+            'most_reserved' => $most_reserved,
+            'least_reserved' => $least_reserved,
+        ]);
+    }
+    public function search(Request $req){
+
+      //    $title = $req->input('title');
+      //    $property = Property::where('title', $title)->first();
+      //  return view('pages.search', compact('property'));
+      $query = $req->input('query');
+      $results = Property::query()
+         ->where('title', 'LIKE', '%'.$query.'%')
+         ->orWhere('location', 'LIKE', '%'.$query.'%')
+         ->get();
+      //return view('property.index', compact('results'));
+      return view('pages.search', compact('results'));
+
+    }
+    public function searchreserve(Request $req){
+
+      $reserves = Reserve::join('property', 'property.property_code', '=', 'property_reserved.unit_code')
+                  ->join('businesses', 'businesses.business_code', '=', 'property_reserved.business_code')
+                  ->select('*', 'property_reserved.status as status', 'property_reserved.property_code as propertyCode')
+                  ->orderBy('property_reserved.id', 'desc')
+                  ->get();
+
+       $query = $req->input('query');
+       $results = Reserve::query()
+         ->where('buyer_email', 'LIKE', '%' . $query . '%')
+         ->orWhere('buyer_name', 'LIKE', '%' . $query . '%')
+         ->get();
+      //  return $results;
+     return view('pages.searchreserve', compact('results'));
+    }
+    public function location(){
+      return view('pages.location');
+      
+    }
 
 }

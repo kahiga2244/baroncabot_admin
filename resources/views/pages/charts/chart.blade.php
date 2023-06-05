@@ -11,68 +11,80 @@
       <div class="main-panel">
         <div class="content-wrapper">
           <!-- row end -->
-              <div class="row">
-                  <div class="card">
-                    <div class="card-body">
-                      <table>
+          <div class="row">
+            <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Latest Properties</h4>
+                  <p class="card-description">
+                    Recently Added <code>.table</code>
+                  </p>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
                         <tr>
-                        <td>Id</td>
-                        <td>title</td>
-                        <td>location</td>
-                        <td>price</td>
-                        <td>created_at</td>
+                          <th>Title</th>
+                          <th>Property Type</th>
+                          <th>Price</th>
+                          <th>Location</th>
+                          <th>Payment Plan</th>
                         </tr>
-                      </table>
-                    </div>
-                    @foreach($properties as $property)
+                      </thead>
+                      <tbody>
+                        @foreach ($properties as $property)
+                        <tr>
+                           <td>{{$property->title}}</td>
+                           <td>{{$property->property_type}}</td>
+                           <td>{{$property->price}}</td>
+                           <td>{{$property->location}}</td>
+                           <td>{{$property->payment_plan}}</td>
+                        </tr>
 
-                    <tr>
-                    <td>{{$properties['id']}}</td>
-                    <td>{{$properties['title']}}</td>
-                    <td>{{$properties['location']}}</td>
-                    <td>{{$properties['price']}}</td>
-                    <td>{{$properties['created_at']}}</td>
-                    </tr>
-                    @endforeach
+                     </tbody>
+                     @endforeach
+                    </table>
                   </div>
+                </div>
+              </div>
+            </div>
+            {{-- <div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Latest Businesses</h4>
+                  <p class="card-description">
+                   Recent Business <code>.table-hover</code>
+                  </p>
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Created_at</th>
+                          <th>Update_at</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach ($businesses ?? '' as $business)
+                        <tr>
+                           <td>{{$business->name}}</td>
+                           <td>{{$business->email}}</td>
+                           <td>{{$business->created_at}}</td>
+                           <td>{{$business->updated_at}}</td>
+                        </tr>
 
+                     </tbody>
+                     @endforeach
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div> --}}
+        </div>
+        <!-- content-wrapper ends -->
 
-              {{-- <div class="row">
-                <div class="col-lg-6 grid-margin stretch-card">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Area chart</h4>
-                      <canvas id="areaChart"></canvas>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 grid-margin stretch-card">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Doughnut chart</h4>
-                      <canvas id="doughnutChart"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div> --}}
-              {{-- <div class="row">
-                <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Pie chart</h4>
-                      <canvas id="pieChart"></canvas>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Scatter chart</h4>
-                      <canvas id="scatterChart"></canvas>
-                    </div>
-                  </div>
-                </div>
-      </div> --}}
+        <!-- partial -->
+      </div>
       <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
@@ -98,4 +110,3 @@
 </body>
 
 </html>
-

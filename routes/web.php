@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
+use App\Http\Controllers\JointuserbusinessController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,9 +21,10 @@ Auth::routes();
 
 Route::get('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
 Route::get('dashboard', [App\Http\Controllers\adminController::class, 'dashboard'])->name('dashboard.page');
+Route::get('location', [App\Http\Controllers\propertyController::class, 'location'])->name('location.page');
 
 //property
-Route::get('properties', [App\Http\Controllers\propertyController::class, 'index'])->name('property.index');
+Route::any('properties', [App\Http\Controllers\propertyController::class, 'index'])->name('property.index');
 Route::get('property/create', [App\Http\Controllers\propertyController::class, 'create'])->name('property.create');
 Route::post('property/create', [App\Http\Controllers\propertyController::class, 'store'])->name('property.store');
 Route::get('property/{code}/edit', [App\Http\Controllers\propertyController::class, 'edit'])->name('property.edit');
@@ -77,8 +80,26 @@ Route::get('marketing/{unitCode}/iframe', [App\Http\Controllers\marketingControl
 //fact search
 Route::get('factSearch', [App\Http\Controllers\factSearchController::class, 'index'])->name('fact.search.index');
 
-//charts
-Route::get('charts', [App\Http\Controllers\ChartController::class, 'charts'])->name('charts.chart');
-Route::get('table', [App\Http\Controllers\ChartController::class, 'table'])->name('charts.table');
 
+//search
+Route::get('search', [App\Http\Controllers\propertyController::class, 'search'])->name('pages.search');
+Route::get('searchbusiness', [App\Http\Controllers\businessesController::class, 'search'])->name('page.searchbusiness');
+Route::get('searchreserve', [App\Http\Controllers\propertyController::class, 'searchreserve'])->name('page.searchreserve');
 
+//adding users
+Route::resource('users', UserController::class);
+
+//drawing conclusions
+Route::get('emplo-com', [App\Http\Controllers\businessesController::class, 'proBus'])->name('comparison.emploCom');
+Route::get('users-table', [App\Http\Controllers\businessesController::class, 'join'])->name('comparison.table');
+Route::get('biz-user', [App\Http\Controllers\businessesController::class, 'count'])->name('comparison.bizUser');
+
+//comparison property reserved
+Route::get('res-com', [App\Http\Controllers\propertyController::class, 'compareCompanies'])->name('comparison.reservedCompany');
+
+//payments form(/proof-form)
+Route::get('proof-form', [App\Http\Controllers\ReservationProofController::class, 'index'])->name('reservations.index');
+Route::post('submit-form', [App\Http\Controllers\ReservationProofController::class, 'store'])->name('reservations.store');
+Route::get('retrieve', [App\Http\Controllers\ReservationProofController::class, 'retrieve'])->name('reservation.retrieve');
+Route::get('/download/{id}', [App\Http\Controllers\ReservationProofController::class, 'download'])->name('download');
+Route::get('proof_form/{code}/details', [App\Http\Controllers\ReservationProofController::class, 'proof_index'])->name('reservation.proof_index');

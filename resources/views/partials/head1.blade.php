@@ -13,6 +13,8 @@ $currentTime = Carbon::now();
   <!-- base:css -->
   <link rel="stylesheet" href="asset1/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="asset1/vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+
   <!-- endinject -->
   <!-- plugin css for this page -->
   <!-- End plugin css for this page -->

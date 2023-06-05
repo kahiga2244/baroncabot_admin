@@ -1,5 +1,4 @@
-
-      <div class="main-panel">
+<div class="main-panel">
         <div class="content-wrapper">
           <!-- row end -->
                <div class="row">
